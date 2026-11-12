@@ -1,3 +1,6 @@
+sources:
+  greenhouse: []
+  lever: []
 app:
   database: data/jobs.db
   refresh_hours: 12
