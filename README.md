@@ -17,8 +17,8 @@ Windows 10/11, Python 3.11+, Git. 8 GB RAM is sufficient for the core app. Ollam
 
 ## Install (PowerShell)
 ```powershell
-.scriptssetup.ps1
-..venvScriptsActivate.ps1
+.\scripts\setup.ps1
+.\.venv\Scripts\Activate.ps1
 ```
 Manual:
 ```powershell
