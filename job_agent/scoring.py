@@ -49,7 +49,7 @@ def score_job(job,profile):
   elif years>user_years:score-=10;warnings.append(f"Experience requirement needs review: about {years} years")
   else:reasons.append(f"Experience requirement appears compatible (about {years} years)")
  else:warnings.append("Experience requirement not confidently extracted; inspect posting")
- if salary_below_target(job.get("salary_text"),profile.get("minimum_salary_lpa')):
+ if salary_below_target(job.get("salary_text"),profile.get("minimum_salary_lpa")):
   score-=15;warnings.append("Published INR salary appears below target")
  elif not job.get("salary_text"):warnings.append("Salary not disclosed; verify during screening")
  excluded=[word for word in profile.get("exclude_keywords",[]) if word.lower() in full]
