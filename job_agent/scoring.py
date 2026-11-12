@@ -10,10 +10,8 @@ ALIASES = {
 }
 ROLE=("devops","platform","cloud","site reliability","sre","infrastructure","systems engineer","production engineer")
 INFRA=("ci/cd","pipeline","deployment","monitoring","observability","cloud infrastructure","automation","incident","kubernetes","terraform")
-
 def contains(text,term):
  return re.search(r"(?<![a-z0-9])"+re.escape(term.lower())+r"(?![a-z0-9])",text.lower()) is not None
-
 def experience_requirement(description):
  patterns=(r"(\d{1,2})\s*[-–to]+\s*(\d{1,2})\s*\+?\s*years?",r"(\d{1,2})\s*\+\s*years?",r"at least\s+(\d{1,2})\s+years?",r"minimum of\s+(\d{1,2})\s+years?")
  vals=[]
@@ -22,20 +20,17 @@ def experience_requirement(description):
    nums=[int(x) for x in match.groups() if x and x.isdigit()]
    if nums:vals.append(max(nums))
  return min(vals) if vals else None
-
 def salary_below_target(salary,minimum):
  if not salary or not minimum:return False
  value=salary.lower().replace(",","")
  if not any(x in value for x in ("lpa","lakh","lakhs","inr","₹")):return False
  nums=[float(x) for x in re.findall(r"\d+(?:\.\d+)?",value)]
  return bool(nums and max(nums)<float(minimum))
-
 def score_job(job,profile):
- title=(job.get("title") or "").lower()
- desc=(job.get("description") or "").lower()
+ title=(job.get("title") or "").lower();desc=(job.get("description") or "").lower()
  location=(job.get("location") or "").lower()
  full=" ".join((title,desc,location,(job.get("company") or "").lower()))
- score=0; reasons=[]; warnings=[]
+ score=0;reasons=[];warnings=[]
  if any(term in title for term in ROLE):score+=25;reasons.append("Relevant infrastructure/platform title (+25)")
  else:warnings.append("Title is not an obvious DevOps/platform match")
  skills=profile.get("skills",[]);matched=[]
