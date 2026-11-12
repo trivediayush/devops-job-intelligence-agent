@@ -1,34 +1,21 @@
+app:
+  database: data/jobs.db
+  request_timeout_seconds: 20
+  user_agent: "DevOpsJobIntelligenceAgent/1.0 (personal research)"
+# Public board slugs/tokens, not display names.
 sources:
   greenhouse: []
   lever: []
-app:
-  database: data/jobs.db
-  refresh_hours: 12
-  request_timeout_seconds: 20
-  user_agent: "DevOpsJobIntelligenceAgent/0.1 (personal research; contact: local-user)"
+  ashby: []
 profile:
-  target_titles:
-    - DevOps Engineer
-    - Platform Engineer
-    - Cloud Engineer
-    - Site Reliability Engineer
-    - Infrastructure Engineer
-  skills:
-    - AWS
-    - Linux
-    - Kubernetes
-    - Docker
-    - Terraform
-    - Jenkins
-    - GitHub Actions
-    - GitLab CI
-    - Prometheus
-    - Grafana
-    - Azure
-    - Bash
-    - Python
-    - Trivy
-    - SonarQube
+  target_titles: [DevOps Engineer, Platform Engineer, Cloud Engineer, Site Reliability Engineer, Infrastructure Engineer, Cloud Operations Engineer]
+  skills: [AWS, Linux, Kubernetes, Docker, Terraform, Jenkins, GitHub Actions, GitLab CI, Prometheus, Grafana, Azure, Bash, Python, Trivy, SonarQube, OpenTelemetry]
   preferred_locations: [India, Remote]
   minimum_salary_lpa: 6
   years_experience: 1
+  exclude_keywords: [unpaid internship]
+llm:
+  enabled: false
+  provider: ollama
+  model: qwen2.5:1.5b
+  base_url: http://localhost:11434
